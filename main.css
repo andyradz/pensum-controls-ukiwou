@@ -1,0 +1,29 @@
+#clock {
+  font-family: Montserrat;
+}
+#clock .clickedclock {
+  border: 1px solid red;
+  color: red;
+}
+#clock #clockwrapper {
+  background: #0099f7;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f11712, #0099f7);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f11712, #0099f7);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 250px;
+  border-top: 1px solid #ccc;
+  box-shadow: 0px 0px 5px 0px #ccc;
+  cursor: pointer;
+  vertical-align: middle;
+  width: 250px;
+  margin: 0 auto;
+  padding: 15px;
+}
+#clock #clockwrapper h1 {
+  text-align: center;
+}
+#clock #clockwrapper h2 {
+  text-align: center;
+}
