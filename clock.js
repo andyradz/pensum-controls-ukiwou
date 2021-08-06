@@ -1,7 +1,7 @@
 import React from 'react';
 import React, { useState, useEffect } from 'react';
 
-import './main.css';
+import './clock.css';
 
 const Clock = props => {
   const [data, setData] = useState({
@@ -19,7 +19,7 @@ const Clock = props => {
       document.title = new Date();
       clearInterval(data.timerID);
     };
-  }, [data.css]);
+  }, []);
 
   const tick = () => {
     setData({ ...data, date: new Date() });
@@ -34,9 +34,11 @@ const Clock = props => {
   };
 
   return (
-    <div id="clockwrapper" className={data.css} onClick={handleClick}>
-      <h1>{data.date.toLocaleTimeString()}</h1>
-      <h2>{data.label}</h2>
+    <div id="clock">
+      <div id="clockwrapper" className={data.css} onClick={handleClick}>
+        <h1>{data.date.toLocaleTimeString()}</h1>
+        <h2>{data.label}</h2>
+      </div>
     </div>
   );
 };
