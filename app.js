@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import FullFeaturedDemo from './codigoCustomGrid';
 import Clock from './clock';
 import ArticleList from './articles';
+import Memos from './memos';
 
 export default function App() {
   return (
@@ -17,10 +18,13 @@ export default function App() {
             <Link to="/customers">Customers</Link>
           </li>
           <li>
-            <li>
-              <Link to="/books">Books</Link>
-            </li>
+            <Link to="/books">Books</Link>
+          </li>
+          <li>
             <Link to="/clock">Clock</Link>
+          </li>
+          <li>
+            <Link to="/memos">Memos</Link>
           </li>
           <li>
             <Link to="/topics">Topics</Link>
@@ -36,6 +40,9 @@ export default function App() {
           </Route>
           <Route path="/clock">
             <ClockPage />
+          </Route>
+          <Route path="/memos">
+            <MemosPage />
           </Route>
           <Route path="/topics">
             <TopicsPage />
@@ -67,6 +74,10 @@ const BooksPage = () => {
 
 const ClockPage = () => {
   return <Clock />;
+};
+
+const MemosPage = () => {
+  return <Memos />;
 };
 
 const TopicsPage = () => {

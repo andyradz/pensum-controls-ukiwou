@@ -7,9 +7,10 @@ const Clock = props => {
   const [data, setData] = useState({
     date: new Date(),
     label: 'Zegar cyfrowy',
-    css: 'empty',
     timerID: 0
   });
+
+  const [css, setCss] = useState('');
 
   useEffect(() => {
     document.title = new Date();
@@ -19,23 +20,19 @@ const Clock = props => {
       document.title = new Date();
       clearInterval(data.timerID);
     };
-  }, []);
+  }, [css]);
 
   const tick = () => {
     setData({ ...data, date: new Date() });
   };
 
   const handleClick = () => {
-    setData({
-      ...data,
-      date: new Date(),
-      css: data.css == 'clickedclock' ? '' : 'clickedclock'
-    });
+    setCss(css === '' ? 'clickedclock' : '');
   };
 
   return (
     <div id="clock">
-      <div id="clockwrapper" className={data.css} onClick={handleClick}>
+      <div id="clockwrapper" className={css} onClick={handleClick}>
         <h1>{data.date.toLocaleTimeString()}</h1>
         <h2>{data.label}</h2>
       </div>
