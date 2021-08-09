@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+
 export default function useLocalStorageState(key, defaultValue) {
   const [state, setState] = useState(() => {
     let value;
@@ -21,10 +23,11 @@ export default function useLocalStorageState(key, defaultValue) {
 }
 
 export default function Licznik(){
-const[count=0,setCount] = useLocalStorageState("pensum",0);
+const[count,setCount] = useLocalStorageState("pensum",0);
 return(
   <div>
-    <button onClick={()=> setCount(count+1)}></button>
+    <button onClick={()=> setCount(count+1)}>Increment</button>
+    <button onClick={()=> setCount(count-1)}>Decrement</button>
   </div>
 );
 }
