@@ -5,6 +5,7 @@ import FullFeaturedDemo from './codigoCustomGrid';
 import Clock from './clock';
 import ArticleList from './articles';
 import Memos from './memos';
+import ToDoManager from './todos';
 
 export default function App() {
   return (
@@ -29,6 +30,9 @@ export default function App() {
           <li>
             <Link to="/topics">Topics</Link>
           </li>
+          <li>
+            <Link to="/todos">Taski</Link>
+          </li>
         </ul>
 
         <Switch>
@@ -49,6 +53,9 @@ export default function App() {
           </Route>
           <Route path="/">
             <HomePage />
+          </Route>
+          <Route path="/todos">
+            <TodosPage />
           </Route>
         </Switch>
       </div>
@@ -78,6 +85,10 @@ const ClockPage = () => {
 
 const MemosPage = () => {
   return <Memos />;
+};
+
+const TodosPage = () => {
+  return <ToDoManager />;
 };
 
 const TopicsPage = () => {
