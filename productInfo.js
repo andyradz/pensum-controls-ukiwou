@@ -37,8 +37,8 @@ export default function ProductInfo() {
             <ButtonBase className={classes.image}>
               <img
                 className={classes.img}
-                alt="complex"
-                src="/static/images/grid/complex.jpg"
+                alt="product"
+                src="./../static/images/product.jpg"
               />
             </ButtonBase>
           </Grid>
