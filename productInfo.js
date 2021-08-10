@@ -38,7 +38,7 @@ export default function ProductInfo() {
               <img
                 className={classes.img}
                 alt="product"
-                src="./../static/images/product.jpg"
+                src="/pensum-controls-ukiwou/product.jpg"
               />
             </ButtonBase>
           </Grid>
