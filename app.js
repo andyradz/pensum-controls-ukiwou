@@ -1,67 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from 'react-router-dom';
 
 import FullFeaturedDemo from './codigoCustomGrid';
 import Clock from './clock';
 import ArticleList from './articles';
 import Memos from './memos';
 import ToDoManager from './todos';
-
-export default function App() {
-  return (
-    <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/customers">Customers</Link>
-          </li>
-          <li>
-            <Link to="/books">Books</Link>
-          </li>
-          <li>
-            <Link to="/clock">Clock</Link>
-          </li>
-          <li>
-            <Link to="/memos">Memos</Link>
-          </li>
-          <li>
-            <Link to="/topics">Topics</Link>
-          </li>
-          <li>
-            <Link to="/todos">Taski</Link>
-          </li>
-        </ul>
-
-        <Switch>
-          <Route path="/customers">
-            <CustomersPage />
-          </Route>
-          <Route path="/books">
-            <BooksPage />
-          </Route>
-          <Route path="/clock">
-            <ClockPage />
-          </Route>
-          <Route path="/memos">
-            <MemosPage />
-          </Route>
-          <Route path="/topics">
-            <TopicsPage />
-          </Route>
-          <Route path="/">
-            <HomePage />
-          </Route>
-          <Route path="/todos">
-            <TodosPage />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
-}
 
 const HomePage = () => {
   return (
@@ -122,6 +73,79 @@ const TopicsPage = () => {
     </div>
   );
 };
+
+const Routes = [
+  { path: '/home', component: HomePage },
+  { path: '/customers', component: CustomersPage },
+  { path: '/books', component: BooksPage },
+  { path: '/clock', component: ClockPage },
+  { path: '/memos', component: MemosPage },
+  {
+    path: '/topics',
+    component: TopicsPage,
+    routes: [
+      {
+        path: '/topics/bus',
+        component: TopicsPage
+      },
+      {
+        path: '/topics/cart',
+        component: TopicsPage
+      }
+    ]
+  },
+  { path: '/todos', component: TodosPage }
+];
+
+export default function App() {
+  return (
+    <Router>
+      <div>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/customers">Customers</Link>
+          </li>
+          <li>
+            <Link to="/books">Books</Link>
+          </li>
+          <li>
+            <Link to="/clock">Clock</Link>
+          </li>
+          <li>
+            <Link to="/memos">Memos</Link>
+          </li>
+          <li>
+            <Link to="/topics">Topics</Link>
+          </li>
+          <li>
+            <Link to="/todos">Taski</Link>
+          </li>
+        </ul>
+
+        <Switch>
+          {Routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+function RouteWithSubRoutes(route) {
+  return (
+    <Route
+      path={route.path}
+      render={props => (
+        // pass the sub-routes down to keep nesting
+        <route.component {...props} routes={route.routes} />
+      )}
+    />
+  );
+}
 
 function Topic() {
   let { topicId } = useParams();
