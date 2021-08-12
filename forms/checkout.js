@@ -10,14 +10,14 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import AddressForm from './forms/address';
-import PaymentForm from '/forms/payment';
-import Review from '/forms/review';
+import AddressForm from '../forms/address';
+import PaymentForm from '../forms/payment';
+import Review from '../forms/review';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {'Copyright © 2020-2021 codigo digital technology'}
       <Link color="inherit" href="https://material-ui.com/">
         www.codigo.com.pl
       </Link>{' '}
@@ -97,7 +97,7 @@ export default function Checkout() {
       <AppBar position="absolute" color="default" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            Company name
+            Codigo Digital Technology
           </Typography>
         </Toolbar>
       </AppBar>

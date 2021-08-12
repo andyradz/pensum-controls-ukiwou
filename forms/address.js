@@ -14,12 +14,16 @@ export default function AddressForm() {
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
+            required="true"
             id="firstName"
             name="firstName"
             label="First name"
             fullWidth
             autoComplete="given-name"
+            defaultValue="Andrzej"
+            error
+          
+          label="Error"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -30,6 +34,7 @@ export default function AddressForm() {
             label="Last name"
             fullWidth
             autoComplete="family-name"
+            defaultValue="Radziszewski"
           />
         </Grid>
         <Grid item xs={12}>
