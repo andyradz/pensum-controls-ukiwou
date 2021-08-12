@@ -13,6 +13,9 @@ import Clock from './clock';
 import ArticleList from './articles';
 import Memos from './memos';
 import ToDoManager from './todos';
+import CoffeeList from './coffeeList';
+import CoffeeDetails from './coffeeDetails';
+import NotFound404 from './notFound404';
 
 const HomePage = () => {
   return (
@@ -80,11 +83,27 @@ const TopicsPage = () => {
 };
 
 const Routes = [
-  { path: '/home', component: HomePage },
+  { path: '/home', component: HomePage, exact: true },
   { path: '/customers', component: CustomersPage },
   { path: '/books', component: BooksPage },
   { path: '/clock', component: ClockPage },
   { path: '/memos', component: MemosPage },
+  //{ path: '/coffee/hot/1', component: CoffeeDetails },
+  { path: '/todos', component: TodosPage },
+  {
+    path: '/coffee',
+    component: CoffeeRouting,
+    routes: [
+      {
+        path: '/coffee/:type',
+        component: CoffeeList
+      },
+      {
+        path: '/coffee/:type/:id',
+        component: CoffeeDetails
+      }
+    ]
+  },
   {
     path: '/topics',
     component: TopicsPage,
@@ -98,8 +117,7 @@ const Routes = [
         component: TopicsPage
       }
     ]
-  },
-  { path: '/todos', component: TodosPage }
+  }
 ];
 
 export default function App() {
@@ -128,12 +146,18 @@ export default function App() {
           <li>
             <Link to="/todos">Taski</Link>
           </li>
+          <li>
+            <Link to="/coffee">Kawy</Link>
+          </li>
         </ul>
 
         <Switch>
           {Routes.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} />
           ))}
+          <Route path="*">
+            <NotFound404 />
+          </Route>
         </Switch>
       </div>
     </Router>
@@ -155,4 +179,25 @@ function RouteWithSubRoutes(route) {
 function Topic() {
   let { topicId } = useParams();
   return <h3>Requested topic ID: {topicId}</h3>;
+}
+
+function CoffeeRouting({ routes }) {
+  return (
+    <>
+      <h1>Type of coffees:</h1>
+      <ul>
+        <li>
+          <Link to="/coffee/hot">Hot Coffees</Link>
+        </li>
+        <li>
+          <Link to="/coffee/iced">Cold coffees</Link>
+        </li>
+      </ul>
+      <Switch>
+        {routes.map((route, i) => (
+          <RouteWithSubRoutes key={i} {...route} />
+        ))}
+      </Switch>
+    </>
+  );
 }
