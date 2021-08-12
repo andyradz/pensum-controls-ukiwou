@@ -16,6 +16,7 @@ import ToDoManager from './todos';
 import CoffeeList from './coffeeList';
 import CoffeeDetails from './coffeeDetails';
 import NotFound404 from './notFound404';
+import Navigation from './navigation';
 
 const HomePage = () => {
   return (
@@ -121,10 +122,22 @@ const Routes = [
 ];
 
 export default function App() {
+  const navLinks = [
+    {
+      linkPath: '/',
+      linkName: 'home'
+    },
+    {
+      linkPath: '/clock',
+      linkName: 'clock'
+    }
+  ];
+
   return (
     <Router>
+      <Navigation {...navLinks} />
       <div>
-        <ul>
+        {/* <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -149,7 +162,7 @@ export default function App() {
           <li>
             <Link to="/coffee">Kawy</Link>
           </li>
-        </ul>
+        </ul> */}
 
         <Switch>
           {Routes.map((route, i) => (

@@ -19,7 +19,7 @@ const CoffeeList = () => {
   useEffect(() => {
     fetchData();
     console.log(params);
-  }, [params.type]);
+  }, []);
 
   return (
     <>
