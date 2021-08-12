@@ -16,6 +16,7 @@ import ToDoManager from './todos';
 import CoffeeList from './coffeeList';
 import CoffeeDetails from './coffeeDetails';
 import NotFound404 from './notFound404';
+import Checkout from './forms/checkout';
 import Navigation from './navigation';
 
 const HomePage = () => {
@@ -44,6 +45,10 @@ const MemosPage = () => {
 
 const TodosPage = () => {
   return <ToDoManager />;
+};
+
+const CheckoutPage = () => {
+  return <Checkout />;
 };
 
 const TopicsPage = () => {
@@ -89,7 +94,7 @@ const Routes = [
   { path: '/books', component: BooksPage },
   { path: '/clock', component: ClockPage },
   { path: '/memos', component: MemosPage },
-  //{ path: '/coffee/hot/1', component: CoffeeDetails },
+  { path: '/checkout/', component: CheckoutPage },
   { path: '/todos', component: TodosPage },
   {
     path: '/coffee',
@@ -135,34 +140,39 @@ export default function App() {
 
   return (
     <Router>
-      <Navigation {...navLinks} />
+      {/* <Navigation {...navLinks} /> */}
       <div>
-        {/* <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/customers">Customers</Link>
-          </li>
-          <li>
-            <Link to="/books">Books</Link>
-          </li>
-          <li>
-            <Link to="/clock">Clock</Link>
-          </li>
-          <li>
-            <Link to="/memos">Memos</Link>
-          </li>
-          <li>
-            <Link to="/topics">Topics</Link>
-          </li>
-          <li>
-            <Link to="/todos">Taski</Link>
-          </li>
-          <li>
-            <Link to="/coffee">Kawy</Link>
-          </li>
-        </ul> */}
+        {
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/customers">Customers</Link>
+            </li>
+            <li>
+              <Link to="/books">Books</Link>
+            </li>
+            <li>
+              <Link to="/clock">Clock</Link>
+            </li>
+            <li>
+              <Link to="/memos">Memos</Link>
+            </li>
+            <li>
+              <Link to="/topics">Topics</Link>
+            </li>
+            <li>
+              <Link to="/todos">Taski</Link>
+            </li>
+            <li>
+              <Link to="/coffee">Kawy</Link>
+            </li>
+            <li>
+              <Link to="/checkout">Formularz</Link>
+            </li>
+          </ul>
+        }
 
         <Switch>
           {Routes.map((route, i) => (
