@@ -17,6 +17,8 @@ import CoffeeList from './coffeeList';
 import CoffeeDetails from './coffeeDetails';
 import NotFound404 from './notFound404';
 import Checkout from './forms/checkout';
+import ProductInfo from './productInfo';
+
 import Navigation from './navigation';
 
 const HomePage = () => {
@@ -49,6 +51,10 @@ const TodosPage = () => {
 
 const CheckoutPage = () => {
   return <Checkout />;
+};
+
+const ProductInfoPage = () => {
+  return <ProductInfo />;
 };
 
 const TopicsPage = () => {
@@ -96,6 +102,7 @@ const Routes = [
   { path: '/memos', component: MemosPage },
   { path: '/checkout/', component: CheckoutPage },
   { path: '/todos', component: TodosPage },
+  { path: '/productinfo', component: ProductInfoPage },
   {
     path: '/coffee',
     component: CoffeeRouting,
@@ -167,6 +174,9 @@ export default function App() {
             </li>
             <li>
               <Link to="/coffee">Kawy</Link>
+            </li>
+            <li>
+              <Link to="/productinfo">Produkty</Link>
             </li>
             <li>
               <Link to="/checkout">Formularz</Link>

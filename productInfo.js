@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ProductInfo() {
+const ProductInfo = props => {
   const classes = useStyles();
 
   return (
@@ -38,7 +38,7 @@ export default function ProductInfo() {
               <img
                 className={classes.img}
                 alt="product"
-                src="/pensum-controls-ukiwou/product.jpg"
+                src="./static/images/product.jpg"
               />
             </ButtonBase>
           </Grid>
@@ -69,4 +69,6 @@ export default function ProductInfo() {
       </Paper>
     </div>
   );
-}
+};
+
+export default ProductInfo;
