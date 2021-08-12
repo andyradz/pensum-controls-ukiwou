@@ -18,6 +18,7 @@ import CoffeeDetails from './coffeeDetails';
 import NotFound404 from './notFound404';
 import Checkout from './forms/checkout';
 import ProductInfo from './productInfo';
+import GlobalCounter from './globalCounter';
 
 import Navigation from './navigation';
 
@@ -55,6 +56,10 @@ const CheckoutPage = () => {
 
 const ProductInfoPage = () => {
   return <ProductInfo />;
+};
+
+const GlobalCounterPage = () => {
+  return <GlobalCounter />;
 };
 
 const TopicsPage = () => {
@@ -103,6 +108,7 @@ const Routes = [
   { path: '/checkout/', component: CheckoutPage },
   { path: '/todos', component: TodosPage },
   { path: '/productinfo', component: ProductInfoPage },
+  { path: '/globalcounter', component: GlobalCounterPage },
   {
     path: '/coffee',
     component: CoffeeRouting,
@@ -180,6 +186,9 @@ export default function App() {
             </li>
             <li>
               <Link to="/checkout">Formularz</Link>
+            </li>
+            <li>
+              <Link to="/globalcounter">Globalny licznik</Link>
             </li>
           </ul>
         }
