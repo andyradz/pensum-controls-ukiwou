@@ -5,6 +5,22 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
+const DateTimeTextField = () => {
+  return (
+    <TextField
+      required
+      fullWidth
+      id="expDate"
+      label="Expiry date"
+      defaultValue={new Date().toLocaleString()}
+      InputProps={{
+        readOnly: false,
+        disabled: true
+      }}
+    />
+  );
+};
+
 export default function PaymentForm() {
   return (
     <React.Fragment>
@@ -12,7 +28,7 @@ export default function PaymentForm() {
         Payment method
       </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6}>         
           <TextField
             required
             id="cardName"
@@ -31,13 +47,13 @@ export default function PaymentForm() {
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField
+          {DateTimeTextField() /* <TextField
             required
             id="expDate"
             label="Expiry date"
             fullWidth
             autoComplete="cc-exp"
-          />
+          /> */}
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
