@@ -1,3 +1,5 @@
+//https://kursjs.pl/kurs/ajax/promise.php
+
 export default class ConcurrentTaskQueue {
   constructor(taskPromisesFunc = [], batchSize = 1) {
     this.batchSize =
@@ -12,6 +14,7 @@ export default class ConcurrentTaskQueue {
       Promise.all(taskPromises.map(p => p()))
         .then(resolvedValues => {
           this.resolvedValues = [...this.resolvedValues, ...resolvedValues];
+          console.log(resolvedValues);
           this.run(resolve, reject);
         })
         .catch(err => reject(err));

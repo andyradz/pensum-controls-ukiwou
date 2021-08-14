@@ -21,13 +21,3 @@ export default function useLocalStorageState(key, defaultValue) {
 
   return [state, setState];
 }
-
-export default function Licznik(){
-const[count,setCount] = useLocalStorageState("pensum",0);
-return(
-  <div>
-    <button onClick={()=> setCount(count+1)}>Increment</button>
-    <button onClick={()=> setCount(count-1)}>Decrement</button>
-  </div>
-);
-}

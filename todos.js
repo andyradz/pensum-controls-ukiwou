@@ -2,12 +2,12 @@ import React from 'react';
 import useArray from './useArray';
 
 export default function ToDoManager() {
-  const todos = useArray(['hi there', 'sup', 'world']);
+  const todos = useArray(['hi there', 'sup', 'world', 'mama', 'tata']);
 
   return (
     <div>
       <h3>TODOS</h3>
-      <button onClick={() => todos.add(Math.random())}>Add</button>
+      <button onClick={() => todos.insertAsFirst(Math.random())}>Add</button>
       <ul>
         {todos.items.map((item, id) => (
           <li key={id}>
@@ -16,7 +16,7 @@ export default function ToDoManager() {
           </li>
         ))}
       </ul>
-      <button onClick={() => todos.clear()}>Clear All</button>
+      <button onClick={() => todos.clearAll()}>Clear All</button>
     </div>
   );
 }
