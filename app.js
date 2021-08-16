@@ -19,6 +19,7 @@ import NotFound404 from './notFound404';
 import Checkout from './forms/checkout';
 import ProductInfo from './productInfo';
 import GlobalCounter from './globalCounter';
+import MainMenu from './mainMenu';
 
 import Navigation from './navigation';
 
@@ -152,57 +153,60 @@ export default function App() {
   ];
 
   return (
-    <Router>
-      {/* <Navigation {...navLinks} /> */}
-      <div>
-        {
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/customers">Customers</Link>
-            </li>
-            <li>
-              <Link to="/books">Books</Link>
-            </li>
-            <li>
-              <Link to="/clock">Clock</Link>
-            </li>
-            <li>
-              <Link to="/memos">Memos</Link>
-            </li>
-            <li>
-              <Link to="/topics">Topics</Link>
-            </li>
-            <li>
-              <Link to="/todos">Taski</Link>
-            </li>
-            <li>
-              <Link to="/coffee">Kawy</Link>
-            </li>
-            <li>
-              <Link to="/productinfo">Produkty</Link>
-            </li>
-            <li>
-              <Link to="/checkout">Formularz</Link>
-            </li>
-            <li>
-              <Link to="/globalcounter">Globalny licznik</Link>
-            </li>
-          </ul>
-        }
+    <>
+      <MainMenu />
+      <Router>
+        {/* <Navigation {...navLinks} /> */}
+        <div>
+          {
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/customers">Customers</Link>
+              </li>
+              <li>
+                <Link to="/books">Books</Link>
+              </li>
+              <li>
+                <Link to="/clock">Clock</Link>
+              </li>
+              <li>
+                <Link to="/memos">Memos</Link>
+              </li>
+              <li>
+                <Link to="/topics">Topics</Link>
+              </li>
+              <li>
+                <Link to="/todos">Taski</Link>
+              </li>
+              <li>
+                <Link to="/coffee">Kawy</Link>
+              </li>
+              <li>
+                <Link to="/productinfo">Produkty</Link>
+              </li>
+              <li>
+                <Link to="/checkout">Formularz</Link>
+              </li>
+              <li>
+                <Link to="/globalcounter">Globalny licznik</Link>
+              </li>
+            </ul>
+          }
 
-        <Switch>
-          {Routes.map((route, i) => (
-            <RouteWithSubRoutes key={i} {...route} />
-          ))}
-          <Route path="*">
-            <NotFound404 />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+          <Switch>
+            {Routes.map((route, i) => (
+              <RouteWithSubRoutes key={i} {...route} />
+            ))}
+            <Route path="*">
+              <NotFound404 />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </>
   );
 }
 
