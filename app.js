@@ -21,14 +21,14 @@ import ProductInfo from './productInfo';
 import GlobalCounter from './globalCounter';
 import MainMenu from './mainMenu';
 
-import Navigation from './navigation';
+import { IconPage, SvgIconsColor } from './iconPage';
 
 const HomePage = () => {
-  return (
-    <div>
-      <h1>Welcome to the Home Page!</h1>
-    </div>
-  );
+  return <h1>Welcome all!</h1>;
+};
+
+const IconPage = () => {
+  return <IconPage />;
 };
 
 const CustomersPage = () => {
@@ -99,7 +99,11 @@ const TopicsPage = () => {
     </div>
   );
 };
-
+{
+  {
+    debugger;
+  }
+}
 const Routes = [
   { path: '/home', component: HomePage, exact: true },
   { path: '/customers', component: CustomersPage },
@@ -110,6 +114,7 @@ const Routes = [
   { path: '/todos', component: TodosPage },
   { path: '/productinfo', component: ProductInfoPage },
   { path: '/globalcounter', component: GlobalCounterPage },
+  { path: '/iconic', component: IconPage },
   {
     path: '/coffee',
     component: CoffeeRouting,
@@ -141,22 +146,10 @@ const Routes = [
 ];
 
 export default function App() {
-  const navLinks = [
-    {
-      linkPath: '/',
-      linkName: 'home'
-    },
-    {
-      linkPath: '/clock',
-      linkName: 'clock'
-    }
-  ];
-
   return (
     <>
       <MainMenu />
       <Router>
-        {/* <Navigation {...navLinks} /> */}
         <div>
           {
             <ul>
@@ -192,6 +185,9 @@ export default function App() {
               </li>
               <li>
                 <Link to="/globalcounter">Globalny licznik</Link>
+              </li>
+              <li>
+                <Link to="/iconic">Ikony</Link>
               </li>
             </ul>
           }
